@@ -149,6 +149,9 @@
     }
     function  closeform() {
     document.getElementById('myform').style.display='none';
+    document.getElementById('todos_text').value = '';
+    document.getElementById('todos_project_id').value = '';
+    document.getElementById('todos_isCompleted').value = false;
     }
     function openform() {
     document.getElementById('myform').style.display='block';
