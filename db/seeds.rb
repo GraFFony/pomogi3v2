@@ -10,7 +10,7 @@
 		project.todos.create({text: 'Купить молоко', isCompleted: false, project_id:1 })
 		project.todos.create({text: 'Заменить масло в двигателе до 23 апреля', isCompleted: false , project_id:1 })
 		project.todos.create({text: 'Отправить письмо бабушке', isCompleted: true, project_id:1})
-		project.todos.create({text: 'Заплитить за квартиру', isCompleted: false, project_id:1})
+		project.todos.create({text: 'Заплатить за квартиру', isCompleted: false, project_id:1})
 		project.todos.create({text: 'Забрать обувь из ремонта', isCompleted: false, project_id:1})
 	project = Project.create({title: 'Работа'})
 		project.todos.create({text: 'Позвонить заказчику', isCompleted: true, project_id:2})
