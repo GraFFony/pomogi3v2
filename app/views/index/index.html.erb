@@ -1,0 +1,131 @@
+<div class="divm"><div class="divtitle">Задачи</div><b><div class="atitle"><a class="afix" href="#" onclick="openform()">+</a></div></b></div>
+	<script type="text/javascript">
+		function update(x) {
+			var h = 0;
+		text = document.getElementById(x+'text').innerHTML;
+		com = document.getElementById(x+'com').innerHTML;
+		id = document.getElementById(x+'id').innerHTML;
+		document.getElementById('todos_text').value = text;
+		document.getElementById('todos_project_id').value = id;
+			if (com == "false") {
+				document.getElementById('todos_isCompleted').value = true;
+			} else{
+				document.getElementById('todos_isCompleted').value = false;
+			}
+		document.forms["formform"].submit();
+		setTimeout(function() {location.reload();}, 1000);
+		}
+	</script>
+<table>
+	<tr>
+<td class="uld">
+<div class="nameul"><b>СЕМЬЯ</b></div>
+
+	<ul>
+		<%= @Todo1.find_each do |t| %>
+		<%= 
+			if (t.isCompleted==false)
+				puts @g = 'noneline', @c=' ', @r = "false"
+			else
+				puts @g = 'line', @c="checked='true'", @r = "true"	 
+			end
+		%>
+		<li>
+			<input type="checkbox" class="fixbox" disabled <%= @c %>>
+			<div id="<%= @f=@f+1 %>" class="<%= @g %>">
+				<a href="#" onclick="update(<%= @f %>)">
+					<div id="<%= @f %>text" class="colorfix"><%=  t.text  %></div>
+				<div class="nonevision">
+					<div id="<%= @f %>com"><%= @r %></div>
+					<div id="<%= @f %>id"><%= t.project_id %></div>
+				</div>
+				</a>
+			</div>
+		</li>
+		<% end %>
+	</ul>
+</td>
+<td class="uld">
+<div class="nameul"><b>РАБОТА</b></div>
+	<ul>
+		<%= @Todo2.find_each do |t| %>
+		<%= 
+			if (t.isCompleted==false)
+				puts @g = 'noneline', @c=' ', @r = "false"
+			else
+				puts @g = 'line', @c="checked='true'", @r = "true"	 
+			end
+		%>
+		<li>
+			<input type="checkbox" name="<%= @f = @f+1 %>"  class="fixbox" disabled <%= @c %>>
+			<div id="<%= @f %>" class="<%= @g %>">
+				<a href="#" onclick="update(<%= @f %>)">
+					<div id="<%= @f %>text" class="colorfix"><%=  t.text  %></div>
+				<div class="nonevision">
+					<div id="<%= @f %>com"><%= @r %></div>
+					<div id="<%= @f %>id"><%= t.project_id %></div>
+				</div>
+				</a>
+			</div>
+		</li>
+		<% end %>
+	</ul>
+</td>
+<td class="uld">
+<div class="nameul"><b>ПРОЧЕЕ</b></div>
+	<ul>
+		<%= @Todo3.find_each do |t| %>
+		<%= 
+			if (t.isCompleted==false)
+				puts @g = 'noneline', @c=' ', @r = "false"
+			else
+				puts @g = 'line', @c="checked='true'", @r = "true"	 
+			end
+		%>
+		<li>
+			<input type="checkbox" name="<%= @f = @f+1 %>"  class="fixbox" disabled <%= @c %>>
+			<div id="<%= @f %>" class="<%= @g %>">
+				<a href="#" onclick="update(<%= @f %>)">
+					<div id="<%= @f %>text" class="colorfix"><%=  t.text  %></div>
+				<div class="nonevision">
+					<div id="<%= @f %>com"><%= @r %></div>
+					<div id="<%= @f %>id"><%= t.project_id %></div>
+				</div>		
+				</a>
+			</div>
+		</li>
+		<% end %>
+	</ul>
+</td>
+</tr>
+</table> 
+<div id="myform"> 
+<div class="fade"></div>
+<div class="formcreate">
+	<div class="nameul"><b class="fixb" >НОВАЯ ЗАДАЧА</b></div>
+	<%= form_for :todos, url: todos_path, :html =>{:id => "formform"} do |f| %>
+		<br>
+		<div class="buttons">
+    		<%= f.text_field  :text %>
+    		
+    		<%= f.text_field  :isCompleted, :value => false  %>
+  		</div>	
+		<br>
+		<div class="buttons">
+			<%= f.select :project_id, options_for_select([['Семья', 1], ['Работа', 2], ['Прочее', 3]]) %>
+		</div>
+		<br>
+			<div class="buttons">
+				<a href="#" onclick="closeform()">
+					<div id="fixbutton" class="abutton">
+						<div class="texta">ОТМЕНА</div>
+					</div>
+				</a>
+				<a href="#" onclick="save()">
+					<div class="abutton">
+						<div class="texta">ОК</div>
+					</div>
+				</a>
+			</div>
+	<% end %>
+</div>
