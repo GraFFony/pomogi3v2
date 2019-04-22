@@ -1,14 +1,7 @@
   development:
     adapter: postgresql
-    database: d1q7mcfq4i4hnh
+    database: d84mk0nr4f3o0n
     pool: 5
     username: wejsljihjsxhqv
-    password: db64c643afec38cb9c712f5a97b18168bccb024cbd65ba4bfca25673c9061b18
-    host: ec2-54-228-243-238.eu-west-1.compute.amazonaws.com
- #   development:
- #    adapter: postgresql
- #    database: development
- #    pool: 5
- #   username: postgres
- #  password: 39370970z
- #  host: localhost
+    password: 7cbb05867cf0ce8c4e7fd156fa0fae77230f22830c26119d812d87b337c5d0ff
+    host: ec2-54-246-92-116.eu-west-1.compute.amazonaws.com
